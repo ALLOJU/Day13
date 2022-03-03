@@ -14,7 +14,7 @@ public class MaximumTest<T extends Comparable<T>> {
 	 * Creating generic method for accepting different data types
 	 * 
 	 * */
-	public static<T extends Comparable<T>> void testMaximum(T... array) {
+	public static<T extends Comparable<T>> T testMaximum(T... array) {
 		T max = array[0];
 
 		for(int i=0;i<array.length;i++)
@@ -26,11 +26,14 @@ public class MaximumTest<T extends Comparable<T>> {
 
 
 		}
-
-		System.out.println("Maximum value is "+max);
+		printMax(max);
+		return max;
 	}
 
-
+	private static <T>void printMax(T max) {
+		System.out.println("Maximum value is "+max);
+		
+	}
 	public static void main(String[] args) {
 
 		Integer intArray[]= {6,8,9,5};           // Test Case 1
