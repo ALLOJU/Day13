@@ -14,33 +14,31 @@ public class MaximumTest<T extends Comparable<T>> {
 	 * Creating generic method for accepting different data types
 	 * 
 	 * */
-	public static<T extends Comparable<T>> T testMaximum(T x,T y,T z) {
-		T max = x;
+	public static<T extends Comparable<T>> void testMaximum(T... array) {
+		T max = array[0];
 
-		if(y.compareTo(max)>0) {
-			max=y;
+		for(int i=0;i<array.length;i++)
+		{
+			if(array[i].compareTo(max)>0)
+			{
+				max=array[i];
+			}
+
+
 		}
-		if(z.compareTo(max)>0) {
-			max=z;
-		}
-		printMax(x,y,z,max);
-		
-		return max;
-	}
-	public static<T> void printMax(T x, T y, T z, T max) {
-		System.out.printf("Max of %s ,%s and %s is %s \n",x,y,z,max);		
+
+		System.out.println("Maximum value is "+max);
 	}
 
 
 	public static void main(String[] args) {
-	
-		//declaring values
-		Integer x=5, y=6,z=8;
-		Float xf=6.6f,yf=8.8f,zf=7.7f;
-		String xStr="Apple",yStr="Peach",zStr="Banana";
-		
-		MaximumTest.testMaximum(x,y,z);
-		MaximumTest.testMaximum(xf, yf, zf);
-		MaximumTest.testMaximum(xStr, yStr, zStr);
+
+		Integer intArray[]= {6,8,9,5};           // Test Case 1
+		Float   floatArray[]= {6.5f,6.6f,4.5f,8.5f};     //Test Case  2
+		String  stringArray[]= {"Apple","Grapes","Peach","Banana"};
+
+		MaximumTest.testMaximum(intArray);
+		MaximumTest.testMaximum(floatArray);
+		MaximumTest.testMaximum(stringArray);
 	}
 }
